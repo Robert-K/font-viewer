@@ -20,3 +20,11 @@ A lightweight font viewer app built with Tauri, SvelteKit, TypeScript, and Tailw
 ![Screenshot 2](https://github.com/user-attachments/assets/4b7adfd3-f126-40fa-9895-8fec1e140240)
 
 ![Screenshot 3](https://github.com/user-attachments/assets/ea5c5482-3eea-401c-bff0-f9c3777e4838)
+
+## Build
+
+```bash
+pnpm i
+
+pnpm tauri dev
+```
