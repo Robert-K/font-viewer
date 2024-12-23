@@ -13,7 +13,7 @@
     import DarkModeToggle from "$lib/components/dark-mode-toggle.svelte"
 </script>
 
-<Sidebar.Provider class="max-w-full">
+<Sidebar.Provider class="max-w-full" open={false}>
     <AppSidebar />
     <main class="h-screen w-full flex flex-col min-w-0">
         <div class="flex items-center justify-between gap-4 p-2 border-b">

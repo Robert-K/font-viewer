@@ -8,7 +8,7 @@ interface PreviewOptions {
 }
 
 export const previewOptions = writable<PreviewOptions>({
-    fontSize: 16,
+    fontSize: 32,
     fontWeight: 400,
     fontStyle: "normal",
     text: "The quick brown fox jumps over the lazy dog",
