@@ -13,6 +13,13 @@ A lightweight font viewer app built with Tauri, SvelteKit, TypeScript, and Tailw
 - Customize font size, weight, and style
 - Custom text preview
 
+## Wishlist
+
+- Rasterize fonts in backend using [fontdue](https://github.com/mooman219/fontdue)
+- Compare fonts (glyphs & custom text) using [dssim](https://github.com/kornelski/dssim)
+- Sort fonts by similarity
+- Integrate Google Fonts
+
 ## Screenshots
 
 ![Screenshot 1](https://github.com/user-attachments/assets/214d0287-e981-4cff-8c48-c71401b63e30)
