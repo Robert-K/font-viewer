@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Slider } from "$lib/components/ui/slider/index.js"
-    import { LucideALargeSmall } from "lucide-svelte"
+    import { Bold } from "lucide-svelte"
     import { previewOptions } from "$lib/stores/preview-options.js"
     import * as Popover from "$lib/components/ui/popover/index.js"
     import { buttonVariants } from "$lib/components/ui/button/index.js"
@@ -8,19 +8,19 @@
 
 <Popover.Root>
     <Popover.Trigger class={buttonVariants({ variant: "ghost", size: "icon" })}
-        ><LucideALargeSmall /></Popover.Trigger
+        ><Bold /></Popover.Trigger
     >
     <Popover.Content class="flex items-center gap-4 w-auto">
         <Slider
-            value={[$previewOptions.fontSize]}
-            min={4}
-            max={200}
+            value={[$previewOptions.fontWeight]}
+            min={1}
+            max={1000}
             step={1}
             class="w-32"
             onValueChange={(v) => {
-                $previewOptions.fontSize = v[0]
+                $previewOptions.fontWeight = v[0]
             }}
         />
-        <span class="w-12">{$previewOptions.fontSize}px</span>
+        <span class="w-10">{$previewOptions.fontWeight}</span>
     </Popover.Content>
 </Popover.Root>
