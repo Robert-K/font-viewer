@@ -1,6 +1,6 @@
 # Font Viewer
 
-![Font Viewer Icon](./src-tauri/icons/app-icon.png)
+<img width="50%" src="./src-tauri/icons/app-icon.png">
 
 A lightweight font viewer app built with Tauri, SvelteKit, TypeScript, and Tailwind CSS.
 
