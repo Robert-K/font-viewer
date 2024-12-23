@@ -7,7 +7,7 @@
     import FamilyPreview from "./family-preview.svelte"
 
     import { previewOptions } from "$lib/stores/preview-options"
-    import { fontFilters } from "$lib/stores/font-filters"
+    import { fontFilters, FontSource } from "$lib/stores/font-filters"
     import { tick } from "svelte"
 
     let scrollElement = $state<HTMLElement | null>(null)
@@ -16,6 +16,28 @@
 
     let filtered_families = $derived(
         installed_families.filter((family) => {
+            switch ($fontFilters.source) {
+                case FontSource.System:
+                    if (
+                        !family.fonts.some((font) =>
+                            font.path.toLowerCase().includes("c:\\windows")
+                        )
+                    ) {
+                        return false
+                    }
+                    break
+                case FontSource.User:
+                    if (
+                        !family.fonts.some((font) =>
+                            font.path.toLowerCase().includes("c:\\users")
+                        )
+                    ) {
+                        return false
+                    }
+                    break
+                case FontSource.GoogleFonts:
+                    return false
+            }
             return family.family_name
                 .toLowerCase()
                 .includes($fontFilters.search.toLowerCase())
