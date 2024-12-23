@@ -16,7 +16,7 @@
             min={4}
             max={200}
             step={1}
-            class="w-32"
+            class="w-48"
             onValueChange={(v) => {
                 $previewOptions.fontSize = v[0]
             }}

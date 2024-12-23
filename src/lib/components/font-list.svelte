@@ -7,17 +7,25 @@
     import FamilyPreview from "./family-preview.svelte"
 
     import { previewOptions } from "$lib/stores/preview-options"
+    import { fontFilters } from "$lib/stores/font-filters"
     import { tick } from "svelte"
 
     let scrollElement = $state<HTMLElement | null>(null)
 
     let installed_families = $state<FontFamily[]>([])
 
+    let filtered_families = $derived(
+        installed_families.filter((family) => {
+            return family.family_name
+                .toLowerCase()
+                .includes($fontFilters.search.toLowerCase())
+        })
+    )
+
     previewOptions.subscribe(async (options) => {
         if (scrollElement) {
             let scrollPercentage =
                 scrollElement.scrollTop / scrollElement.scrollHeight
-            console.log(scrollElement.scrollTop)
             await tick()
             scrollElement.scrollTop =
                 scrollPercentage * scrollElement.scrollHeight
@@ -42,10 +50,14 @@
 </script>
 
 <ScrollArea bind:viewportRef={scrollElement} orientation="vertical">
-    {#each installed_families as family, i}
+    {#each filtered_families as family, i}
         {#if i > 0}
             <Separator />
         {/if}
         <FamilyPreview {family} />
+    {:else}
+        <div class="pl-5 pt-1 font-semibold text-muted-foreground">
+            No fonts found
+        </div>
     {/each}
 </ScrollArea>

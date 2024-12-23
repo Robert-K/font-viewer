@@ -16,7 +16,7 @@
             min={1}
             max={1000}
             step={1}
-            class="w-32"
+            class="w-48"
             onValueChange={(v) => {
                 $previewOptions.fontWeight = v[0]
             }}
